@@ -23,6 +23,8 @@ namespace Snake
         Texture2D pelletTexture;
         Vector2 food = new Vector2(5, 10);
         Vector2 direction = new Vector2(0, -1);
+        float timeRemaining = 0.0f;
+        const float TimePerSquare = 0.75f;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -121,7 +123,14 @@ namespace Snake
 
             snake[0] += direction;
 
-
+            if (timeRemaining == 0.0f)
+            {
+                currentSquare = new Rectangle(
+                                                rand.Next(0, this.Window.ClientBounds.Width - 25),
+                                                rand.Next(0, this.Window.ClientBounds.Height - 25),
+                                                25, 25);
+                timeRemaining = TimePerSquare;
+            }
             // TODO: Add your update logic here
 
             base.Update(gameTime);
