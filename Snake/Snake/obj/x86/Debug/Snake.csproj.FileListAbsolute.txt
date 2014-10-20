@@ -6,3 +6,11 @@ C:\Users\eahscs\Documents\Visual Studio 2010\Projects\Snake\Snake\Snake\obj\x86\
 C:\Users\eahscs\Documents\Visual Studio 2010\Projects\Snake\Snake\Snake\obj\x86\Debug\Snake.exe
 C:\Users\eahscs\Documents\Visual Studio 2010\Projects\Snake\Snake\Snake\obj\x86\Debug\Snake.pdb
 C:\Users\eahscs\Documents\Visual Studio 2010\Projects\Snake\Snake\Snake\bin\x86\Debug\Content\pellet.xnb
+C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Content\snake.xnb
+C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Content\pellet.xnb
+C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Snake.exe
+C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Snake.pdb
+C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\obj\x86\Debug\Snake.csprojResolveAssemblyReference.cache
+C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\obj\x86\Debug\Snake.exe
+C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\obj\x86\Debug\Snake.pdb

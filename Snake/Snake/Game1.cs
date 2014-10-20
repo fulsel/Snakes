@@ -22,6 +22,7 @@ namespace Snake
         Texture2D snakeTexture;
         Texture2D pelletTexture;
         Vector2 food = new Vector2(5, 10);
+        Vector2 direction = new Vector2(0, -1);
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -53,6 +54,12 @@ namespace Snake
             snakeTexture = Content.Load<Texture2D>("snake");
             pelletTexture = Content.Load<Texture2D>("pellet");
             // TODO: use this.Content to load your game content here
+
+            snake.Add(new Vector2(40, 17));
+            snake.Add(new Vector2(40, 18));
+            snake.Add(new Vector2(40, 19));
+            snake.Add(new Vector2(40, 20));
+            snake.Add(new Vector2(40, 21));
         }
 
         /// <summary>
@@ -77,23 +84,42 @@ namespace Snake
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            snake.Add(new Vector2(4, 1));
-            snake.Add(new Vector2(4, 2));
-            snake.Add(new Vector2(4, 3));
-            snake.Add(new Vector2(4, 4));
-            snake.Add(new Vector2(4, 5));
+
+
+            KeyboardState kb = Keyboard.GetState();
+                
+            if(kb.IsKeyDown(Keys.Left) && direction.X != 1)
+                {
+                    direction = new Vector2(-1, 0);
+                }
+            if (kb.IsKeyDown(Keys.Right) && direction.X != -1)
+            {
+                direction = new Vector2(1, 0);
+            }
+            if (kb.IsKeyDown(Keys.Up) && direction.Y != 1)
+            {
+                direction = new Vector2(0, -1);
+            }
+            if (kb.IsKeyDown(Keys.Down) && direction.Y != -1)
+            {
+                direction = new Vector2(0, 1);
+            }
+
+
+
 
             if (snake[0] == food)
             {
-                snake.Add(snake[0]);
+                //snake.Add(snake[0]);
             }
-            
-            /*
-            snake[4] = snake[3];
-            snake[3] = snake[2];
-            snake[2] = snake[1];
-            snake[1] = snake[0];
-            */
+           
+
+            for (int i = snake.Count - 1; i > 0; i--)
+            {
+                snake[i] = snake[i - 1];
+            }
+
+            snake[0] += direction;
 
 
             // TODO: Add your update logic here

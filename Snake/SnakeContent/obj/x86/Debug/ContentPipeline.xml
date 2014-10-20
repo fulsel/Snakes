@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\eahscs\Documents\Visual Studio 2010\Projects\Snake\Snake\Snake\bin\x86\Debug\Content\snake.xnb</Output>
+      <Output>C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Content\snake.xnb</Output>
       <Time>2014-10-20T07:55:27.5186-04:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\eahscs\Documents\Visual Studio 2010\Projects\Snake\Snake\Snake\bin\x86\Debug\Content\pellet.xnb</Output>
+      <Output>C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Content\pellet.xnb</Output>
       <Time>2014-10-20T08:07:29.8286-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -25,10 +25,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\eahscs\Documents\Visual Studio 2010\Projects\Snake\Snake\SnakeContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\eahscs\Documents\Visual Studio 2010\Projects\Snake\Snake\Snake\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\eahscs\Documents\Visual Studio 2010\Projects\Snake\Snake\SnakeContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\eahscs\Documents\Visual Studio 2010\Projects\Snake\Snake\Snake\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\eahscs\Documents\GitHub\Snakes\Snake\SnakeContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\eahscs\Documents\GitHub\Snakes\Snake\SnakeContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

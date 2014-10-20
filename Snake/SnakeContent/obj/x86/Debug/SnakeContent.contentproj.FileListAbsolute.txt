@@ -1,1 +1,2 @@
 C:\Users\eahscs\Documents\Visual Studio 2010\Projects\Snake\Snake\SnakeContent\obj\x86\Debug\SnakeContent.contentprojResolveAssemblyReference.cache
+C:\Users\eahscs\Documents\GitHub\Snakes\Snake\SnakeContent\obj\x86\Debug\SnakeContent.contentprojResolveAssemblyReference.cache
