@@ -18,13 +18,32 @@ namespace Snake
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Random rand = new Random(System.Environment.TickCount);
+
+        Texture2D squareTexture;
+        int playerScore = 0;
+        float timeRemaining = 0.0f;
+        const float TimePerSquare = 30f;
+
+        float foodRemaining = 0.0f;
+        const float TimePerFood = 3500f;
+
+        Color[] colors = new Color[3] { Color.Red, Color.Green,
+        Color.Blue };
         List<Vector2> snake = new List<Vector2>();
         Texture2D snakeTexture;
         Texture2D pelletTexture;
         Vector2 food = new Vector2(5, 10);
         Vector2 direction = new Vector2(0, -1);
-        float timeRemaining = 0.0f;
+        
+        /*float timeRemaining = 0.0f;
         const float TimePerSquare = 0.75f;
+        Random rand = new Random();
+        Texture2D squareTexture;
+        Rectangle currentSquare;
+        int playerScore = 0;
+        Color[] colors = new Color[3] { Color.Red, Color.Green,
+Color.Blue };*/
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -78,61 +97,117 @@ namespace Snake
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
+        
         protected override void Update(GameTime gameTime)
         {
-            
-            
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+          
+                // Allows the game to exit
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                    this.Exit();
 
 
 
-            KeyboardState kb = Keyboard.GetState();
-                
-            if(kb.IsKeyDown(Keys.Left) && direction.X != 1)
+                KeyboardState kb = Keyboard.GetState();
+
+                if (kb.IsKeyDown(Keys.Left) && direction.X != 1)
                 {
                     direction = new Vector2(-1, 0);
                 }
-            if (kb.IsKeyDown(Keys.Right) && direction.X != -1)
-            {
-                direction = new Vector2(1, 0);
-            }
-            if (kb.IsKeyDown(Keys.Up) && direction.Y != 1)
-            {
-                direction = new Vector2(0, -1);
-            }
-            if (kb.IsKeyDown(Keys.Down) && direction.Y != -1)
-            {
-                direction = new Vector2(0, 1);
-            }
+                if (kb.IsKeyDown(Keys.Right) && direction.X != -1)
+                {
+                    direction = new Vector2(1, 0);
+                }
+                if (kb.IsKeyDown(Keys.Up) && direction.Y != 1)
+                {
+                    direction = new Vector2(0, -1);
+                }
+                if (kb.IsKeyDown(Keys.Down) && direction.Y != -1)
+                {
+                    direction = new Vector2(0, 1);
+                }
+
+                if (foodRemaining <= 0)
+                {
+                    food = new Vector2(rand.Next(1, 40), rand.Next(1, 40));
+                    foodRemaining = TimePerFood;
+                }
 
 
+                if (timeRemaining <= 0.0f)
+                {
 
 
-            if (snake[0] == food)
-            {
-                //snake.Add(snake[0]);
-            }
-           
+                    if (snake[0] == food)
+                    {
+                        snake.Add(snake[0]);
+                        playerScore++;
+                        food = new Vector2(rand.Next(1,20), rand.Next(1,20));
+                        foodRemaining = 0.0f;
+                    }
 
-            for (int i = snake.Count - 1; i > 0; i--)
-            {
-                snake[i] = snake[i - 1];
-            }
 
-            snake[0] += direction;
+                    for (int i = snake.Count - 1; i > 0; i--)
+                    {
+                        snake[i] = snake[i - 1];
+                    }
 
-            if (timeRemaining == 0.0f)
-            {
-                currentSquare = new Rectangle(
-                                                rand.Next(0, this.Window.ClientBounds.Width - 25),
-                                                rand.Next(0, this.Window.ClientBounds.Height - 25),
-                                                25, 25);
-                timeRemaining = TimePerSquare;
-            }
-            // TODO: Add your update logic here
+                    snake[0] += direction;
 
+                    /*  if (timeRemaining == 0.0f)
+                    {
+                        currentSquare = new Rectangle(
+                                                        rand.Next(0, this.Window.ClientBounds.Width - 25),
+                                                        rand.Next(0, this.Window.ClientBounds.Height - 25),
+                                                        25, 25);
+                        timeRemaining = TimePerSquare;
+                    }
+                     */
+
+                    for(int i = 0; i < snake.Count; i++)
+                    {
+                        if (snake[i].X < 0)
+                        {
+                            snake[0] = new Vector2(40, 17);
+                            playerScore--;
+                            break;
+                        }
+
+                        if (snake[i].X > 80)
+                        {
+                            snake[0] = new Vector2(40, 17);
+                            playerScore--;
+                            break;
+                        }
+
+                        if (snake[i].Y < 0)
+                        {
+                            snake[0] = new Vector2(40, 17);
+                            playerScore--;
+                            break;
+                        }
+
+                        if (snake[i].Y > 50)
+                        {
+                            snake[0] = new Vector2(40, 17);
+                            playerScore--;
+                            break;
+                        }
+
+                        if (i > 0 && snake[0] == snake[i])
+                        {
+                            snake[0] = new Vector2(40, 17);
+                            playerScore--;
+                            break;
+                        }
+                    }
+
+                    timeRemaining = TimePerSquare;
+                }
+                
+                timeRemaining = timeRemaining - (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                foodRemaining = foodRemaining - (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+                this.Window.Title = "Score : " + playerScore.ToString();
             base.Update(gameTime);
         }
 
@@ -145,14 +220,15 @@ namespace Snake
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
+           
+
             for (int i = 0; i < snake.Count; i++)
             {
                 spriteBatch.Draw(snakeTexture, new Rectangle((int)snake[i].X * 10, (int)snake[i].Y * 10, 10, 10), Color.White);
             }
 
-            
-                spriteBatch.Draw(pelletTexture, new Rectangle(10, 10, 10, 10), Color.White);
-           
+
+            spriteBatch.Draw(pelletTexture, food * 10, Color.White);
 
 
 
