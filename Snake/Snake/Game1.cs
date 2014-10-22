@@ -24,6 +24,9 @@ namespace Snake
         int playerScore = 0;
         float timeRemaining = 0.0f;
         const float TimePerSquare = 30f;
+        Song a;
+        Texture2D astleyheadtexture;
+        
 
         float foodRemaining = 0.0f;
         const float TimePerFood = 3500f;
@@ -35,7 +38,8 @@ namespace Snake
         Texture2D pelletTexture;
         Vector2 food = new Vector2(5, 10);
         Vector2 direction = new Vector2(0, -1);
-        
+
+
         /*float timeRemaining = 0.0f;
         const float TimePerSquare = 0.75f;
         Random rand = new Random();
@@ -58,9 +62,12 @@ Color.Blue };*/
         /// </summary>
         protected override void Initialize()
         {
+            //a = Content.Load<Song>("a");
+            //astleyheadtexture = Content.Load<Texture2D>("astley_head");
             // TODO: Add your initialization logic here
 
             base.Initialize();
+
         }
 
         /// <summary>
@@ -75,12 +82,13 @@ Color.Blue };*/
             snakeTexture = Content.Load<Texture2D>("snake");
             pelletTexture = Content.Load<Texture2D>("pellet");
             // TODO: use this.Content to load your game content here
-
+            
             snake.Add(new Vector2(40, 17));
             snake.Add(new Vector2(40, 18));
             snake.Add(new Vector2(40, 19));
             snake.Add(new Vector2(40, 20));
             snake.Add(new Vector2(40, 21));
+            MediaPlayer.Play(a);
         }
 
         /// <summary>
@@ -105,7 +113,7 @@ Color.Blue };*/
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                     this.Exit();
 
-
+                
 
                 KeyboardState kb = Keyboard.GetState();
 
@@ -128,7 +136,7 @@ Color.Blue };*/
 
                 if (foodRemaining <= 0)
                 {
-                    food = new Vector2(rand.Next(1, 40), rand.Next(1, 40));
+                    food = new Vector2(rand.Next(1, 60), rand.Next(1, 40));
                     foodRemaining = TimePerFood;
                 }
 
@@ -142,7 +150,7 @@ Color.Blue };*/
                         snake.Add(snake[0]);
                         playerScore++;
                         food = new Vector2(rand.Next(1,20), rand.Next(1,20));
-                        foodRemaining = 0.0f;
+                        foodRemaining = TimePerFood;
                     }
 
 
@@ -169,6 +177,13 @@ Color.Blue };*/
                         {
                             snake[0] = new Vector2(40, 17);
                             playerScore--;
+                            snake.Clear();
+                            snake.Add(new Vector2(40, 17));
+                            snake.Add(new Vector2(40, 18));
+                            snake.Add(new Vector2(40, 19));
+                            snake.Add(new Vector2(40, 20));
+                            snake.Add(new Vector2(40, 21));
+                            direction = new Vector2(0, -1);
                             break;
                         }
 
@@ -176,6 +191,13 @@ Color.Blue };*/
                         {
                             snake[0] = new Vector2(40, 17);
                             playerScore--;
+                            snake.Clear();
+                            snake.Add(new Vector2(40, 17));
+                            snake.Add(new Vector2(40, 18));
+                            snake.Add(new Vector2(40, 19));
+                            snake.Add(new Vector2(40, 20));
+                            snake.Add(new Vector2(40, 21));
+                            direction = new Vector2(0, -1);
                             break;
                         }
 
@@ -183,6 +205,13 @@ Color.Blue };*/
                         {
                             snake[0] = new Vector2(40, 17);
                             playerScore--;
+                            snake.Clear();
+                            snake.Add(new Vector2(40, 17));
+                            snake.Add(new Vector2(40, 18));
+                            snake.Add(new Vector2(40, 19));
+                            snake.Add(new Vector2(40, 20));
+                            snake.Add(new Vector2(40, 21));
+                            direction = new Vector2(0, -1);
                             break;
                         }
 
@@ -190,6 +219,13 @@ Color.Blue };*/
                         {
                             snake[0] = new Vector2(40, 17);
                             playerScore--;
+                            snake.Clear();
+                            snake.Add(new Vector2(40, 17));
+                            snake.Add(new Vector2(40, 18));
+                            snake.Add(new Vector2(40, 19));
+                            snake.Add(new Vector2(40, 20));
+                            snake.Add(new Vector2(40, 21));
+                            direction = new Vector2(0, -1);
                             break;
                         }
 
@@ -197,6 +233,12 @@ Color.Blue };*/
                         {
                             snake[0] = new Vector2(40, 17);
                             playerScore--;
+                            snake.Clear();
+                            snake.Add(new Vector2(40, 17));
+                            snake.Add(new Vector2(40, 18));
+                            snake.Add(new Vector2(40, 19));
+                            snake.Add(new Vector2(40, 20));
+                            snake.Add(new Vector2(40, 21));
                             break;
                         }
                     }
@@ -217,7 +259,7 @@ Color.Blue };*/
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.SandyBrown);
             spriteBatch.Begin();
 
            
@@ -229,6 +271,7 @@ Color.Blue };*/
 
 
             spriteBatch.Draw(pelletTexture, food * 10, Color.White);
+            //spriteBatch.Draw(astleyheadtexture, 50, Color.White);
 
 
 

@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Content\snake.xnb</Output>
-      <Time>2014-10-21T07:32:05.3016-04:00</Time>
+      <Time>2014-10-22T07:52:36.8-04:00</Time>
     </Item>
     <Item>
       <Source>pellet.bmp</Source>
@@ -17,7 +17,17 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Content\pellet.xnb</Output>
-      <Time>2014-10-21T07:32:05.3006-04:00</Time>
+      <Time>2014-10-22T07:52:36.799-04:00</Time>
+    </Item>
+    <Item>
+      <Source>a.wma</Source>
+      <Name>a</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Content\a.xnb</Output>
+      <Extra>C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Content\a.wma</Extra>
+      <Time>2014-10-22T08:09:37.663-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

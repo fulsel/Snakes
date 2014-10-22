@@ -14,3 +14,5 @@ C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\obj\x86\Debug\Snake.csprojRe
 C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\obj\x86\Debug\Snake.exe
 C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\obj\x86\Debug\Snake.pdb
+C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Content\a.xnb
+C:\Users\eahscs\Documents\GitHub\Snakes\Snake\Snake\bin\x86\Debug\Content\a.wma
